@@ -1,11 +1,13 @@
 <!doctype html>
 <meta charset="UTF-8">
 <!DOCTYPE html>
-
+<head>
     <title>18區中學面面觀</title>
     <link href="main.css"rel="stylesheet"type="text/css"/>
-    <meta name=viewport content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- 	<script src="jquery.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <script src="controller.js"></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,16 +17,282 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <script src="http://echarts.baidu.com/dist/echarts.js"></script>
+    <script src="http://gallery.echartsjs.com/dep/echarts/map/js/world.js"></script>
+
+
+
+<style>
+        html {
+            position: relative;
+			
+        }
+        
+        footer {
+            background-color: #f5f5f5;
+            position: absolute;
+            margin-top: 15px;
+            padding: 20px;
+            height: 70px;
+            width: 100%;
+            text-align: center;
+        }
+		
+		body {
+    color: black;
+	font-size: 13pt;
+}
+
+h1{
+	font-size:18pt;
+	background-color:white;
+	color: green;
+}
+
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+</style>
+
+</head>
 
 <body>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
 
 <div class="row">
   <div class="col-xs-12 col-md-8">
 
 <center><img src="header.jpg" alt="header" width="682" height="226" style="width:683px;height:300px;" ></center>
 
-數據分析
+<br>
+<center>
+
+<a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a>
+
+<a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a>
+
+<a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a>
+
+<a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a>
+
+</center>
+<br>
+
+<br>
+
+<h1>邊區最多Band 1名校？</h1>
+
+A map will be here very soon
+
+<h1>百年老校定千禧校舍？</h1>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'eventbar')" id="defaultOpen">按事件劃分</button>
+  <button class="tablinks" onclick="openCity(event, 'yearbar')">按年份劃分</button>
+</div>
+
+
+
+<div id="eventbar" class="tabcontent" style="width: 800px;height:400px;">
+<script type="text/javascript">
+
+option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Band 1', 'Band 2','Band 3']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['千禧後','麥理浩教育改革後','二戰後','二戰前','英治初期／之前']
+    },
+    series: [
+        {
+            name: 'Band 1',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [3, 35, 76, 13, 17]
+        },
+        {
+            name: 'Band 2',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [17, 54, 65, 4, 0]
+        },
+        {
+            name: 'Band 3',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [7, 50, 75, 6, 2]
+        }
+    ]
+};
+
+var myChart1 = echarts.init(document.getElementById('eventbar'));
+myChart1.setOption(option);
+</script>
+</div>
+
+
+<div id="yearbar" class="tabcontent" style="width: 800px;height:400px;">
+<script type="text/javascript">
+
+
+option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Band 1', 'Band 2','Band 3']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['1990年-現在','1961年-1990年','1931年-1960年','1901年-1930年','1990年']
+    },
+    series: [
+        {
+            name: 'Band 1',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [12, 88, 18, 11, 17]
+        },
+        {
+            name: 'Band 2',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [42, 75, 21, 1, 0]
+        },
+        {
+            name: 'Band 3',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [27, 90, 17, 4, 2]
+        }
+    ]
+};
+var myChart2 = echarts.init(document.getElementById('yearbar'));
+myChart2.setOption(option);
+</script>
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
 
 按Banding劃分：
 <div class="infogram-embed" data-id="banding-498794079" data-type="interactive" data-title="Banding"></div><script>!function(e,t,s,i){var n="InfogramEmbeds",o=e.getElementsByTagName("script"),d=o[0],r=/^http:/.test(e.location)?"http:":"https:";if(/^\/{2}/.test(i)&&(i=r+i),window[n]&&window[n].initialized)window[n].process&&window[n].process();else if(!e.getElementById(s)){var a=e.createElement("script");a.async=1,a.id=s,a.src=i,d.parentNode.insertBefore(a,d)}}(document,0,"infogram-async","//e.infogr.am/js/dist/embed-loader-min.js");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogr.am/banding-498794079" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Banding</a><br><a href="https://infogr.am" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Create your own infographics</a></div>
