@@ -1,0 +1,444 @@
+<meta charset="UTF-8">
+<!DOCTYPE html>
+<head>
+    <title>18區中學面面觀</title>
+    <link href="main.css"rel="stylesheet"type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="https://echarts.baidu.com/dist/echarts.js"></script>
+    <script src="https://echarts.baidu.com/asset/map/js/province/xianggang.js"></script>
+
+
+
+<style>
+        html {
+            position: relative;
+			
+        }
+        
+        footer {
+            background-color: #f5f5f5;
+            position: absolute;
+            margin-top: 15px;
+            padding: 20px;
+            height: 70px;
+            width: 100%;
+            text-align: center;
+        }
+		
+		body {
+    color: black;
+	font-size: 13pt;
+}
+
+h1{
+	font-size:18pt;
+	background-color:white;
+	color: green;
+}
+
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+
+<center><img src="header.jpg" alt="header" width="682" height="226" style="width:683px;height:300px;" ></center>
+
+<br>
+<center>
+
+<a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a>
+
+<a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a>
+
+<a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a>
+
+<a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a>
+
+</center>
+<br>
+
+<br>
+
+<h1>邊區最多Band 1名校？</h1>
+<center>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <div id="mymap" style="width: 800px;height:400px;"></div>
+    <script type="text/javascript">
+	
+	
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('mymap'));
+		
+var value1 = [
+    {name: '中西區', value: 1},
+    {name: '九龍城區', value: 8},
+    {name: '元朗區', value: 13},
+    {name: '北區', value: 6},
+    {name: '南區', value: 6},
+    {name: '大埔區', value: 9},
+    {name: '屯門區', value: 13},
+    {name: '東區', value: 11},
+	{name: '沙田區', value: 12},
+    {name: '油尖旺區', value: 5},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 2},
+	{name: '荃灣區', value: 5},
+	{name: '葵青區', value: 12},
+	{name: '西貢區', value: 6},
+	{name: '觀塘區', value: 11},
+	{name: '離島區', value: 4},
+	{name: '黃大仙區', value: 8},
+];
+
+////////// Band 2
+var value2 = [
+    {name: '中西區', value: 1},
+    {name: '九龍城區', value: 8},
+    {name: '元朗區', value: 14},
+    {name: '北區', value: 7},
+    {name: '南區', value: 5},
+    {name: '大埔區', value: 5},
+    {name: '屯門區', value: 14},
+    {name: '東區', value: 9},
+	{name: '沙田區', value: 17},
+    {name: '油尖旺區', value: 2},
+	{name: '深水埗區', value: 9},
+	{name: '灣仔區', value: 4},
+	{name: '荃灣區', value: 4},
+	{name: '葵青區', value: 9},
+	{name: '西貢區', value: 10},
+	{name: '觀塘區', value: 10},
+	{name: '離島區', value: 2},
+	{name: '黃大仙區', value: 9},
+];
+
+////////// Band 1
+var value3 = [
+    {name: '中西區', value: 9},
+    {name: '九龍城區', value: 16},
+    {name: '元朗區', value: 10},
+    {name: '北區', value: 7},
+    {name: '南區', value: 2},
+    {name: '大埔區', value: 6},
+    {name: '屯門區', value: 10},
+    {name: '東區', value: 11},
+	{name: '沙田區', value: 16},
+    {name: '油尖旺區', value: 8},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 8},
+	{name: '荃灣區', value: 4},
+	{name: '葵青區', value: 10},
+	{name: '西貢區', value: 5},
+	{name: '觀塘區', value: 9},
+	{name: '離島區', value: 1},
+	{name: '黃大仙區', value: 6},
+];
+
+var nameMap = {
+           'Central and Western': '中西區',
+                    'Eastern': '東區',
+                    'Islands': '離島區',
+                    'Kowloon City': '九龍城區',
+                    'Kwai Tsing': '葵青區',
+                    'Kwun Tong': '觀塘區',
+                    'North': '北區',
+                    'Sai Kung': '西貢區',
+                    'Sha Tin': '沙田區',
+                    'Sham Shui Po': '深水埗區',
+                    'Southern': '南區',
+                    'Tai Po': '大埔區',
+                    'Tsuen Wan': '荃灣區',
+                    'Tuen Mun': '屯門區',
+                    'Wan Chai': '灣仔區',
+                    'Wong Tai Sin': '黄大仙區',
+                    'Yau Tsim Mong': '油尖旺區',
+                    'Yuen Long': '元朗區'
+};
+
+option = {
+    timeline: {
+        axisType: 'category',
+        data: ['Band 1', 'Band 2', 'Band 3']  
+    },
+    baseOption: {
+        visualMap: {
+            max: 17,
+            calculable: true,
+            inRange: {
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+            }
+        },
+		
+	title: {
+            text: '十八區Band 1至Band 3中學地區分佈',
+            
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} 間'
+        },
+        series: [{
+            type: 'map',
+			map: '香港',
+            roam: true,
+            nameMap: nameMap
+        }]
+    },
+    options: [{
+        series: {
+            data: value3
+        } 
+    }, {
+        series: {
+            data: value2
+        }
+    }, {
+        series: {
+            data: value1
+        }
+    }]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        //echarts.registerMap('GeoJSON', geoJSON);
+        myChart.setOption(option);
+    </script>
+    </center>
+    
+<h1>百年老校定千禧校舍？</h1>
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'eventbar')" id="defaultOpen">按事件劃分</button>
+  <button class="tablinks" onclick="openCity(event, 'yearbar')">按年份劃分</button>
+</div>
+
+
+
+<div id="eventbar" class="tabcontent" style="width: 800px;height:400px;">
+<script type="text/javascript">
+
+option = {
+    tooltip : {
+        trigger: 'axis',
+
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Band 1', 'Band 2','Band 3']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value',
+        name: '百分比(%)',
+        nameLocation: 'middle'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['千禧後','麥理浩教育改革後','二戰後','二戰前','英治初期／之前']
+    },
+    series: [
+        {
+            name: 'Band 1',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight',
+                }
+                
+            },
+            data: [11.1, 25.36, 35.19, 56.52, 89.47]
+        },
+        {
+            name: 'Band 2',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [62.96, 38.41, 30.09, 17.39, 0]
+        },
+        {
+            name: 'Band 3',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [25.93, 36.23, 34.72, 26.09, 10.53]
+        }
+    ]
+};
+
+
+var myChart1 = echarts.init(document.getElementById('eventbar'));
+myChart1.setOption(option);
+</script>
+</div>
+
+
+<div id="yearbar" class="tabcontent" style="width: 800px;height:400px;">
+<script type="text/javascript">
+
+
+option = {
+    tooltip : {
+        trigger: 'axis',
+        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+        }
+    },
+    legend: {
+        data: ['Band 1', 'Band 2','Band 3']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis:  {
+        type: 'value',
+     name: '百分比(%)',
+       nameLocation: 'middle'
+    },
+    yAxis: {
+        type: 'category',
+        data: ['1990年-現在','1961年-1990年','1931年-1960年','1901年-1930年','1990年前']
+    },
+    series: [
+        {
+            name: 'Band 1',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [14.81, 34.78, 32.14, 68.75, 89.47]
+        },
+        {
+            name: 'Band 2',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [51.85, 29.64, 37.5, 6.25, 0]
+        },
+        {
+            name: 'Band 3',
+            type: 'bar',
+            stack: '总量',
+            label: {
+                normal: {
+                    show: true,
+                    position: 'insideRight'
+                }
+            },
+            data: [33.33, 35.57, 30.36, 25, 10.53]
+        }
+    ]
+};
+var myChart2 = echarts.init(document.getElementById('yearbar'));
+myChart2.setOption(option);
+</script>
+</div>
+
+
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+
+
+</div></div></div></div></div>
+</body>
