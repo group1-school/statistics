@@ -15,8 +15,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script src="https://echarts.baidu.com/dist/echarts.js"></script>
-    <script src="https://echarts.baidu.com/asset/map/js/province/xianggang.js"></script>
+    <script src="echarts.js"></script>
+    <script src="xianggang.js"></script>
 
 
 
@@ -40,19 +40,16 @@
     color: black;
 	font-size: 13pt;
 }
-
 h1{
 	font-size:18pt;
 	background-color:white;
 	color: green;
 }
-
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
-
 /* Style the buttons inside the tab */
 div.tab button {
     background-color: inherit;
@@ -64,17 +61,14 @@ div.tab button {
     transition: 0.3s;
     font-size: 17px;
 }
-
 /* Change background color of buttons on hover */
 div.tab button:hover {
     background-color: #ddd;
 }
-
 /* Create an active/current tablink class */
 div.tab button.active {
     background-color: #ccc;
 }
-
 /* Style the tab content */
 .tabcontent {
     display: none;
@@ -82,7 +76,6 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
-
 </style>
 
 </head>
@@ -144,7 +137,6 @@ var value1 = [
 	{name: '離島區', value: 4},
 	{name: '黃大仙區', value: 8},
 ];
-
 ////////// Band 2
 var value2 = [
     {name: '中西區', value: 1},
@@ -166,7 +158,6 @@ var value2 = [
 	{name: '離島區', value: 2},
 	{name: '黃大仙區', value: 9},
 ];
-
 ////////// Band 1
 var value3 = [
     {name: '中西區', value: 9},
@@ -188,7 +179,6 @@ var value3 = [
 	{name: '離島區', value: 1},
 	{name: '黃大仙區', value: 6},
 ];
-
 var nameMap = {
            'Central and Western': '中西區',
                     'Eastern': '東區',
@@ -209,7 +199,6 @@ var nameMap = {
                     'Yau Tsim Mong': '油尖旺區',
                     'Yuen Long': '元朗區'
 };
-
 option = {
     timeline: {
         axisType: 'category',
@@ -270,11 +259,9 @@ option = {
 
 <div id="eventbar" class="tabcontent" style="width: 800px;height:400px;">
 <script type="text/javascript">
-
 option = {
     tooltip : {
         trigger: 'axis',
-
         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
             type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
@@ -337,8 +324,6 @@ option = {
         }
     ]
 };
-
-
 var myChart1 = echarts.init(document.getElementById('eventbar'));
 myChart1.setOption(option);
 </script>
@@ -347,8 +332,6 @@ myChart1.setOption(option);
 
 <div id="yearbar" class="tabcontent" style="width: 800px;height:400px;">
 <script type="text/javascript">
-
-
 option = {
     tooltip : {
         trigger: 'axis',
@@ -434,10 +417,13 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
+
+
+
+
 
 
 </div></div></div></div></div>
