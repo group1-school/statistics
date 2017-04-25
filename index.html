@@ -15,8 +15,8 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-    <script src="https://echarts.baidu.com/dist/echarts.js"></script>
-    <script src="https://echarts.baidu.com/asset/map/js/province/xianggang.js"></script>
+    <script src="echarts.js"></script>
+    <script src="xianggang.js"></script>
 
 
 
@@ -40,19 +40,16 @@
     color: black;
 	font-size: 13pt;
 }
-
 h1{
 	font-size:18pt;
 	background-color:white;
 	color: green;
 }
-
 div.tab {
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
-
 /* Style the buttons inside the tab */
 div.tab button {
     background-color: inherit;
@@ -64,17 +61,14 @@ div.tab button {
     transition: 0.3s;
     font-size: 17px;
 }
-
 /* Change background color of buttons on hover */
 div.tab button:hover {
     background-color: #ddd;
 }
-
 /* Create an active/current tablink class */
 div.tab button.active {
     background-color: #ccc;
 }
-
 /* Style the tab content */
 .tabcontent {
     display: none;
@@ -82,7 +76,6 @@ div.tab button.active {
     border: 1px solid #ccc;
     border-top: none;
 }
-
 </style>
 
 </head>
@@ -104,7 +97,7 @@ div.tab button.active {
 
 <a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a>
 
-<a href="https://group1-school.github.io/map" class="btn btn-primary" role="button" aria-pressed="true">中學地圖</a>
+<a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a>
 
 <a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a>
 
@@ -144,7 +137,6 @@ var value1 = [
 	{name: '離島區', value: 4},
 	{name: '黃大仙區', value: 8},
 ];
-
 ////////// Band 2
 var value2 = [
     {name: '中西區', value: 1},
@@ -166,7 +158,6 @@ var value2 = [
 	{name: '離島區', value: 2},
 	{name: '黃大仙區', value: 9},
 ];
-
 ////////// Band 1
 var value3 = [
     {name: '中西區', value: 9},
@@ -188,7 +179,6 @@ var value3 = [
 	{name: '離島區', value: 1},
 	{name: '黃大仙區', value: 6},
 ];
-
 var nameMap = {
            'Central and Western': '中西區',
                     'Eastern': '東區',
@@ -209,11 +199,11 @@ var nameMap = {
                     'Yau Tsim Mong': '油尖旺區',
                     'Yuen Long': '元朗區'
 };
-
 option = {
     timeline: {
         axisType: 'category',
-        data: ['Band 1', 'Band 2', 'Band 3']  
+        data: ['Band 1', 'Band 2', 'Band 3'] ,
+		autoPlay: 'true' 
     },
     baseOption: {
         visualMap: {
@@ -270,11 +260,9 @@ option = {
 
 <div id="eventbar" class="tabcontent" style="width: 800px;height:400px;">
 <script type="text/javascript">
-
 option = {
     tooltip : {
         trigger: 'axis',
-
         axisPointer : {            // 坐标轴指示器，坐标轴触发有效
             type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
         }
@@ -337,8 +325,6 @@ option = {
         }
     ]
 };
-
-
 var myChart1 = echarts.init(document.getElementById('eventbar'));
 myChart1.setOption(option);
 </script>
@@ -347,8 +333,6 @@ myChart1.setOption(option);
 
 <div id="yearbar" class="tabcontent" style="width: 800px;height:400px;">
 <script type="text/javascript">
-
-
 option = {
     tooltip : {
         trigger: 'axis',
@@ -434,11 +418,321 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
-
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 </script>
 
+<h1> 宗教背景的中學壟斷 </h1>
+
+
+
+<div id="religiousmap" style="width: 800px;height:600px;">
+<script type="text/javascript">
+	
+	
+        // 基于准备好的dom，初始化echarts实例
+		
+var value3 = [
+    {name: '中西區', value: 0},
+    {name: '九龍城區', value: 0},
+    {name: '元朗區', value: 1},
+    {name: '北區', value: 0},
+    {name: '南區', value: 0},
+    {name: '大埔區', value: 0},
+    {name: '屯門區', value: 1},
+    {name: '東區', value: 0},
+	{name: '沙田區', value: 0},
+    {name: '油尖旺區', value: 0},
+	{name: '深水埗區', value: 0},
+	{name: '灣仔區', value: 0},
+	{name: '荃灣區', value: 1},
+	{name: '葵青區', value: 0},
+	{name: '西貢區', value: 0},
+	{name: '觀塘區', value: 0},
+	{name: '離島區', value: 1},
+	{name: '黃大仙區', value: 1},
+];
+////////// Band 2
+var value2 = [
+    {name: '中西區', value: 0},
+    {name: '九龍城區', value: 0},
+    {name: '元朗區', value: 0},
+    {name: '北區', value: 0},
+    {name: '南區', value: 0},
+    {name: '大埔區', value: 1},
+    {name: '屯門區', value: 0},
+    {name: '東區', value: 0},
+	{name: '沙田區', value: 0},
+    {name: '油尖旺區', value: 0},
+	{name: '深水埗區', value: 0},
+	{name: '灣仔區', value: 1},
+	{name: '荃灣區', value: 0},
+	{name: '葵青區', value: 0},
+	{name: '西貢區', value: 0},
+	{name: '觀塘區', value: 0},
+	{name: '離島區', value: 0},
+	{name: '黃大仙區', value: 0},
+];
+////////// Band 1
+var value1 = [
+    {name: '中西區', value: 0},
+    {name: '九龍城區', value: 0},
+    {name: '元朗區', value: 0},
+    {name: '北區', value: 0},
+    {name: '南區', value: 0},
+    {name: '大埔區', value: 0},
+    {name: '屯門區', value: 0},
+    {name: '東區', value: 1},
+	{name: '沙田區', value: 0},
+    {name: '油尖旺區', value: 0},
+	{name: '深水埗區', value: 0},
+	{name: '灣仔區', value: 0},
+	{name: '荃灣區', value: 0},
+	{name: '葵青區', value: 0},
+	{name: '西貢區', value: 0},
+	{name: '觀塘區', value: 0},
+	{name: '離島區', value: 0},
+	{name: '黃大仙區', value: 0},
+];
+
+var value4 = [
+    {name: '中西區', value: 0},
+    {name: '九龍城區', value: 0},
+    {name: '元朗區', value: 0},
+    {name: '北區', value: 1},
+    {name: '南區', value: 0},
+    {name: '大埔區', value: 1},
+    {name: '屯門區', value: 1},
+    {name: '東區', value: 1},
+	{name: '沙田區', value: 0},
+    {name: '油尖旺區', value: 0},
+	{name: '深水埗區', value: 0},
+	{name: '灣仔區', value: 0},
+	{name: '荃灣區', value: 0},
+	{name: '葵青區', value: 1},
+	{name: '西貢區', value: 1},
+	{name: '觀塘區', value: 1},
+	{name: '離島區', value: 0},
+	{name: '黃大仙區', value: 0},
+];
+
+var value5 = [
+    {name: '中西區', value: 0},
+    {name: '九龍城區', value: 0},
+    {name: '元朗區', value: 2},
+    {name: '北區', value: 1},
+    {name: '南區', value: 0},
+    {name: '大埔區', value: 1},
+    {name: '屯門區', value: 4},
+    {name: '東區', value: 0},
+	{name: '沙田區', value: 2},
+    {name: '油尖旺區', value: 0},
+	{name: '深水埗區', value: 1},
+	{name: '灣仔區', value: 1},
+	{name: '荃灣區', value: 0},
+	{name: '葵青區', value: 2},
+	{name: '西貢區', value: 2},
+	{name: '觀塘區', value: 1},
+	{name: '離島區', value: 2},
+	{name: '黃大仙區', value: 2},
+];
+
+var value7 = [
+    {name: '中西區', value: 5},
+    {name: '九龍城區', value: 17},
+    {name: '元朗區', value: 11},
+    {name: '北區', value: 6},
+    {name: '南區', value: 6},
+    {name: '大埔區', value: 11},
+    {name: '屯門區', value: 13},
+    {name: '東區', value: 11},
+	{name: '沙田區', value: 14},
+    {name: '油尖旺區', value: 7},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 3},
+	{name: '荃灣區', value: 2},
+	{name: '葵青區', value: 9},
+	{name: '西貢區', value: 7},
+	{name: '觀塘區', value: 10},
+	{name: '離島區', value: 2},
+	{name: '黃大仙區', value: 8},
+];
+
+var value6 = [
+    {name: '中西區', value: 4},
+    {name: '九龍城區', value: 8},
+    {name: '元朗區', value: 4},
+    {name: '北區', value: 3},
+    {name: '南區', value: 7},
+    {name: '大埔區', value: 1},
+    {name: '屯門區', value: 2},
+    {name: '東區', value: 6},
+	{name: '沙田區', value: 7},
+    {name: '油尖旺區', value: 4},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 7},
+	{name: '荃灣區', value: 1},
+	{name: '葵青區', value: 6},
+	{name: '西貢區', value: 2},
+	{name: '觀塘區', value: 9},
+	{name: '離島區', value: 2},
+	{name: '黃大仙區', value: 7},
+];
+
+var nameMap = {
+           'Central and Western': '中西區',
+                    'Eastern': '東區',
+                    'Islands': '離島區',
+                    'Kowloon City': '九龍城區',
+                    'Kwai Tsing': '葵青區',
+                    'Kwun Tong': '觀塘區',
+                    'North': '北區',
+                    'Sai Kung': '西貢區',
+                    'Sha Tin': '沙田區',
+                    'Sham Shui Po': '深水埗區',
+                    'Southern': '南區',
+                    'Tai Po': '大埔區',
+                    'Tsuen Wan': '荃灣區',
+                    'Tuen Mun': '屯門區',
+                    'Wan Chai': '灣仔區',
+                    'Wong Tai Sin': '黄大仙區',
+                    'Yau Tsim Mong': '油尖旺區',
+                    'Yuen Long': '元朗區'
+};
+option = {
+    timeline: {
+        axisType: 'category',
+        data: ['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教' ] ,
+		autoPlay: 'true' 
+    },
+    baseOption: {
+        visualMap: {
+            max: 17,
+            calculable: true,
+            inRange: {
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+            }
+        },
+		
+	title: {
+            text: '十八區有宗教背景中學地區分佈',
+            
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: '{b}<br/>{c} 間'
+        },
+        series: [{
+            type: 'map',
+			map: '香港',
+            roam: true,
+            nameMap: nameMap
+        }]
+    },
+    options: [{
+        series: {
+            data: value1
+        } 
+    }, {
+        series: {
+            data: value2
+        }
+    }, {
+        series: {
+            data: value3
+        }
+    }, {
+        series: {
+            data: value4
+        }
+    }, {
+        series: {
+            data: value5
+        }
+    }, {
+        series: {
+            data: value6
+        }
+    }, {
+        series: {
+            data: value7
+        }
+    }]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        //echarts.registerMap('GeoJSON', geoJSON);
+        var myChart2 = echarts.init(document.getElementById('religiousmap'));
+		myChart2.setOption(option);
+    </script>
+
+</div>
+
+<div id="religiouspie" style="width: 800px;height:600px;">
+<script type="text/javascript">
+    
+option = {
+    tooltip: {
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)"
+    },
+    legend: {
+        orient: 'vertical',
+        x: 'left',
+		y: 'buttom',
+        data:['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教']
+    },
+    series: [
+        {
+            name:'學校數目',
+            type:'pie',
+            radius: ['50%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+                normal: {
+                    show: false,
+                    position: 'center'
+                },
+                emphasis: {
+                    show: true,
+                    textStyle: {
+                        fontSize: '30',
+                        fontWeight: 'bold'
+                    }
+                }
+            },
+            labelLine: {
+                normal: {
+                    show: false
+                }
+            },
+            data:[
+                {value:1, name:'伊斯蘭教'},
+                {value:2, name:'孔教'},
+                {value:5, name:'儒釋道三教'},
+                {value:6, name:'道教'},
+                {value:88, name:'天主教'},
+                {value:150, name:'基督教'}
+            ]
+        }
+    ]
+};
+var myChart3 = echarts.init(document.getElementById('religiouspie'));
+        myChart3.setOption(option);
+    </script>
+
+</div>
 
 </div></div></div></div></div>
 </body>
+
+<footer>
+By Group 1 JOUR2106 (2017)
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-98083359-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</footer>
