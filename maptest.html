@@ -1,0 +1,157 @@
+<!doctype html>
+<meta charset="UTF-8">
+<!DOCTYPE html>
+
+<head>
+    <title>18區中學面面觀</title>
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script src="http://echarts.baidu.com/dist/echarts.js"></script>
+    <script src="https://group1-school.github.io/statistics/map.json"></script>
+</head>
+
+<body>
+
+
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <div id="mymap" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+	
+	
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('mymap'));
+		
+var value1 = [
+    {name: '中西區', value: 1},
+    {name: '九龍城區', value: 8},
+    {name: '元朗區', value: 13},
+    {name: '北區', value: 6},
+    {name: '南區', value: 6},
+    {name: '大埔區', value: 9},
+    {name: '屯門區', value: 13},
+    {name: '東區', value: 11},
+	{name: '沙田區', value: 12},
+    {name: '油尖旺區', value: 5},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 2},
+	{name: '荃灣區', value: 5},
+	{name: '葵青區', value: 12},
+	{name: '西貢區', value: 6},
+	{name: '觀塘區', value: 11},
+	{name: '離島區', value: 4},
+	{name: '黃大仙區', value: 8},
+];
+
+////////// Band 2
+var value2 = [
+    {name: '中西區', value: 1},
+    {name: '九龍城區', value: 8},
+    {name: '元朗區', value: 14},
+    {name: '北區', value: 7},
+    {name: '南區', value: 5},
+    {name: '大埔區', value: 5},
+    {name: '屯門區', value: 14},
+    {name: '東區', value: 9},
+	{name: '沙田區', value: 17},
+    {name: '油尖旺區', value: 2},
+	{name: '深水埗區', value: 9},
+	{name: '灣仔區', value: 4},
+	{name: '荃灣區', value: 4},
+	{name: '葵青區', value: 9},
+	{name: '西貢區', value: 10},
+	{name: '觀塘區', value: 10},
+	{name: '離島區', value: 2},
+	{name: '黃大仙區', value: 9},
+];
+
+////////// Band 1
+var value3 = [
+    {name: '中西區', value: 9},
+    {name: '九龍城區', value: 16},
+    {name: '元朗區', value: 10},
+    {name: '北區', value: 7},
+    {name: '南區', value: 2},
+    {name: '大埔區', value: 6},
+    {name: '屯門區', value: 10},
+    {name: '東區', value: 11},
+	{name: '沙田區', value: 16},
+    {name: '油尖旺區', value: 8},
+	{name: '深水埗區', value: 8},
+	{name: '灣仔區', value: 8},
+	{name: '荃灣區', value: 4},
+	{name: '葵青區', value: 10},
+	{name: '西貢區', value: 5},
+	{name: '觀塘區', value: 9},
+	{name: '離島區', value: 1},
+	{name: '黃大仙區', value: 6},
+];
+
+var nameMap = {
+           'Central and Western': '中西區',
+                    'Eastern': '東區',
+                    'Islands': '離島區',
+                    'Kowloon City': '九龍城區',
+                    'Kwai Tsing': '葵青區',
+                    'Kwun Tong': '觀塘區',
+                    'North': '北區區',
+                    'Sai Kung': '西貢區',
+                    'Sha Tin': '沙田區',
+                    'Sham Shui Po': '深水埗區',
+                    'Southern': '南區區',
+                    'Tai Po': '大埔區',
+                    'Tsuen Wan': '荃灣區',
+                    'Tuen Mun': '屯門區',
+                    'Wan Chai': '灣仔區',
+                    'Wong Tai Sin': '黄大仙區',
+                    'Yau Tsim Mong': '油尖旺區',
+                    'Yuen Long': '元朗區'
+};
+
+option = {
+    timeline: {
+        axisType: 'category',
+        data: ['Band 1', 'Band 2', 'Band 3']  
+    },
+    baseOption: {
+        visualMap: {
+            max: 17,
+            calculable: true,
+            inRange: {
+                color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+            }
+        },
+        series: [{
+            type: 'map',
+            roam: true,
+            nameMap: nameMap
+        }]
+    },
+    options: [{
+        series: {
+            data: value3
+        } 
+    }, {
+        series: {
+            data: value2
+        }
+    }, {
+        series: {
+            data: value1
+        }
+    }]
+};
+        // 使用刚指定的配置项和数据显示图表。
+        //echarts.registerMap('GeoJSON', geoJSON);
+        myChart.setOption(option);
+    </script>
+
+
+</body>
