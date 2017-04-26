@@ -73,8 +73,51 @@ div.tab button.active {
 .tabcontent {
     display: none;
     padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+div.tab2 {
+    overflow: hidden;
     border: 1px solid #ccc;
-    border-top: none;
+    background-color: #f1f1f1;
+}
+/* Style the buttons inside the tab */
+div.tab2 button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+/* Change background color of buttons on hover */
+div.tab2 button:hover {
+    background-color: #ddd;
+}
+/* Create an active/current tablink class */
+div.tab2 button.active {
+    background-color: #ccc;
+}
+/* Style the tab content */
+.tab2content {
+    display: none;
+    padding: 6px 12px;
+    -webkit-animation: fadeEffect 1s;
+    animation: fadeEffect 1s;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 </style>
 
@@ -426,7 +469,13 @@ document.getElementById("defaultOpen").click();
 
 
 
-<div id="religiousmap" style="width: 800px;height:600px;">
+<div class="tab2">
+  <button class="tab2links" onclick="openRe(event, 'Remap')" id="defaultOpen2">地圖</button>
+  <button class="tab2links" onclick="openRe(event, 'Repie')">圓形圖</button>
+
+</div>
+
+<div id="Remap" class="tab2content" style="width: 900px;height:600px;">
 <script type="text/javascript">
 	
 	
@@ -661,13 +710,15 @@ option = {
 };
         // 使用刚指定的配置项和数据显示图表。
         //echarts.registerMap('GeoJSON', geoJSON);
-        var myChart2 = echarts.init(document.getElementById('religiousmap'));
+        var myChart2 = echarts.init(document.getElementById('Remap'));
 		myChart2.setOption(option);
     </script>
 
 </div>
 
-<div id="religiouspie" style="width: 800px;height:600px;">
+
+<div id="Repie"  class="tab2content" style="width: 900px;height:500px;">
+<cener>
 <script type="text/javascript">
     
 option = {
@@ -677,8 +728,7 @@ option = {
     },
     legend: {
         orient: 'vertical',
-        x: 'left',
-		y: 'buttom',
+        x: 'right',
         data:['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教']
     },
     series: [
@@ -716,14 +766,37 @@ option = {
         }
     ]
 };
-var myChart3 = echarts.init(document.getElementById('religiouspie'));
+var myChart3 = echarts.init(document.getElementById('Repie'));
         myChart3.setOption(option);
     </script>
-
+</center>
 </div>
 
+<script>
+function openRe(evt, ReName) {
+    var i, tab2content, tab2links;
+    tab2content = document.getElementsByClassName("tab2content");
+    for (i = 0; i < tab2content.length; i++) {
+        tab2content[i].style.display = "none";
+    }
+    tab2links = document.getElementsByClassName("tab2links");
+    for (i = 0; i < tab2links.length; i++) {
+        tab2links[i].className = tab2links[i].className.replace(" active", "");
+    }
+    document.getElementById(ReName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen2").click();
+</script>
 </div></div></div></div></div>
 </body>
+
+
+<h1>有錢的地方Band 1學校就會多d?</h1>
+
+
 
 <footer>
 By Group 1 JOUR2106 (2017)
