@@ -135,14 +135,7 @@ div.tab2 button.active {
 
 <br>
 <center>
-
-<a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a>
-
-<a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a>
-
-<a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a>
-
-<a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a>
+  <a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a> <a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a> <a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a> <a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a><br>
 
 </center>
 <br>
@@ -155,7 +148,6 @@ div.tab2 button.active {
   <div class="col-xs-12 col-md-8">
     <div id="mymap" style="width: 800px;height:400px;"></div>
     <script type="text/javascript">
-	
 	
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('mymap'));
@@ -790,11 +782,103 @@ function openRe(evt, ReName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen2").click();
 </script>
-</div></div></div></div></div>
+</div>
+
+
+
+</div>
+<h1>有錢的地方Band 1學校就會多d?</h1>
+<div class="row">
+  <div class="col-xs-12 col-md-8">
+    <div id="income" style="width: 850px;height:500px;"></div>
+    <script type="text/javascript">
+
+option = {
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            crossStyle: {
+                color: '#999'
+            }
+        }
+    },
+    toolbox: {
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
+    },
+    legend: {
+        data:['Band 1 學校數量','住戶入息中位數']
+    },
+    xAxis: [
+        {
+            type: 'category',
+            data: ['中西區', '東區','離島區', '九龍城區','葵青區', '觀塘區','北區','西貢區', '沙田區','深水埗區','南區', '大埔區','荃灣區','屯門區','灣仔區','黄大仙區','油尖旺區','元朗區'],
+            axisPointer: {
+                type: 'shadow'
+            }
+			
+        }
+    ],
+	 grid: { // 控制图的大小，调整下面这些值就可以，
+             x: 45,
+             x2: 80,
+             y2: 100,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+         },
+    yAxis: [
+        {
+            type: 'value',
+            name: 'Band 1 學校數量',
+            min: 0,
+            max: 20,
+            interval: 2,
+            axisLabel: {
+                formatter: '{value}'
+				
+            }
+        },
+        {
+            type: 'value',
+            name: '住戶入息中位數',
+            min: 0,
+            max: 50000,
+            interval: 5000,
+            axisLabel: {
+                formatter: '${value} '
+            }
+        }
+    ],
+    series: [
+        {
+            name:'Band 1 學校數量',
+            type:'bar',
+            data:[9,16,10,7,2,6,10,11,16,8,8,8,4,10,5,9,1,6]
+        },
+        {
+            name:'住戶入息中位數',
+            type:'line',
+            yAxisIndex: 1,
+            data:[35000,24200,22800,24500,29200,28000,23000,29000,27500,25000,19000,40000,28000,20600,33000,20000,26000,21300]
+        }
+    ]
+};
+
+        // 基于准备好的dom，初始化echarts实例
+        var myChart5 = echarts.init(document.getElementById('income'));
+
+		myChart5.setOption(option);
+
+</script>
+
+</div></div></div>
 </body>
 
 
-<h1>有錢的地方Band 1學校就會多d?</h1>
+
 
 
 
