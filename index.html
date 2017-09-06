@@ -470,13 +470,15 @@ document.getElementById("defaultOpen").click();
 有基督教或天主教背景的學校壟斷了香港的中學教育，就要追朔到十九世紀，來港傳教士開始創辦不少至今歷史悠久、校譽昭著的補助學校。例如香港首間學校英華書院，由倫敦傳道會的馬禮遜牧師於一八一八年在馬六甲成立。
 </p>
 
-<div class="tab2">
-  <button class="tab2links" onclick="openRe(event, 'Remap')" id="defaultOpen2">地圖</button>
-  <button class="tab2links" onclick="openRe(event, 'Repie')">圓形圖</button>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">地圖</a></li>
+  <li><a data-toggle="tab" href="#menu1">圓形圖</a></li>
+</ul>
 
-</div>
-
-<div id="Remap" class="tab2content" style="width: 900px;height:600px;">
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3>地圖</h3>
+   <div id="Remap" class="tab2content" style="width: 900px;height:600px;">
 <script type="text/javascript">
 	
 	
@@ -644,7 +646,7 @@ var nameMap = {
                     'Yau Tsim Mong': '油尖旺區',
                     'Yuen Long': '元朗區'
 };
-option = {
+	option = {
     timeline: {
         axisType: 'category',
         data: ['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教' ] ,
@@ -704,12 +706,14 @@ option = {
         }
     }]
 };
+	
         // 使用刚指定的配置项和数据显示图表。
         //echarts.registerMap('GeoJSON', geoJSON);
         var myChart2 = echarts.init(document.getElementById('Remap'));
 		myChart2.setOption(option);
     </script>
-	
+  </div>
+  <div id="menu1" class="tab-pane fade">
 <div id="Repie"  class="tab2content" style="width: 900px;height:500px;">
 <script type="text/javascript">
     
@@ -761,6 +765,11 @@ option = {
         var myChart3 = echarts.init(document.getElementById('Repie'));
 		myChart3.setOption(option);
     </script>
+  </div>
+
+
+	
+
 </div>
 	
 <script>
