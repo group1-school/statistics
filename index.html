@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <!DOCTYPE html>
 <head>
-    <title>「數」讀中學教育</title>
+    <title>18區中學面面觀</title>
     <link href="main.css"rel="stylesheet"type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -73,48 +73,8 @@ div.tab button.active {
 .tabcontent {
     display: none;
     padding: 6px 12px;
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s;
-}
-div.tab2 {
-    overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-/* Style the buttons inside the tab */
-div.tab2 button {
-    background-color: inherit;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-    font-size: 17px;
-}
-/* Change background color of buttons on hover */
-div.tab2 button:hover {
-    background-color: #ddd;
-}
-/* Create an active/current tablink class */
-div.tab2 button.active {
-    background-color: #ccc;
-}
-/* Style the tab content */
-.tab2content {
-    display: none;
-    padding: 6px 12px;
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s;
-}
-/* Fade in tabs */
-@-webkit-keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-}
-@keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    border-top: none;
 }
 </style>
 
@@ -125,12 +85,21 @@ div.tab2 button.active {
         <div class="row">
             <div class="col-md-offset-2 col-md-8">
 
+<div class="row">
+  <div class="col-xs-12 col-md-8">
 
 <center><img src="header.jpg" alt="header" width="682" height="226" style="width:683px;height:300px;" ></center>
 
 <br>
 <center>
-  <a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a> <a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a> <a href="https://group1-school.github.io/map" class="btn btn-primary" role="button" aria-pressed="true">追蹤全港中學</a> <a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學教育回顧</a><br>
+
+<a href="https://group1-school.github.io/" class="btn btn-primary" role="button" aria-pressed="true">返回主頁</a>
+
+<a href="https://group1-school.github.io/quiz" class="btn btn-primary" role="button" aria-pressed="true">中學測試</a>
+
+<a href="https://group1-school.github.io/statistics" class="btn btn-primary" role="button" aria-pressed="true">中學數據分析</a>
+
+<a href="https://group1-school.github.io/timeline" class="btn btn-primary" role="button" aria-pressed="true">中學歷史時間線</a>
 
 </center>
 <br>
@@ -143,6 +112,7 @@ div.tab2 button.active {
   <div class="col-xs-12 col-md-8">
     <div id="mymap" style="width: 800px;height:400px;"></div>
     <script type="text/javascript">
+	
 	
         // 基于准备好的dom，初始化echarts实例
         var myChart = echarts.init(document.getElementById('mymap'));
@@ -278,20 +248,8 @@ option = {
         myChart.setOption(option);
     </script>
     </center>
-    <br>
-<p>  
-我們經常聽到的名校網，就是指該區名校數量較多，有部分家長為了提升子女入讀名校機會，會舉家搬到該區居住。
-</p><p>
-要看那區最多名校，依次序為九龍城區（16間）、沙田區（16間）和東區（11間）。其中，九龍城區的Band 1名校均是歷史較悠久的名校，例如同時創立於1889年的拔萃男書院和香港培正中學。東區則只有庇理羅士女子中學（1890年）與之相比。沙田區歷史最悠久的Band 1名校聖羅撒書院是1948年才創立。
-</p><p>
-從區內最多Band 1名校的比例上而言，中西區（81.8%）、油尖旺區（53.3%）、九龍城區（50.0%）位列前三名。中西區有11間中學，屬Band1名校的就佔了兩間，餘下的分別為一間Band 2中學和Band 3中學。    
-</p>
-<h1>學校愈老愈好？</h1>
-<p>
-沒錯，英治初期或以前所建的學校，Band 1率高達近九成，愈遲成立的學校，Band 1率則愈低，形成階級的形狀。若果按等額年份去劃分，階級的形狀雖然不明顯，但1990年前及1901年至1930年間所建的中學，Band 1率也分別有近九成及近七成，可見這些老校的Band 1比率相當高。
-</p><p>
-不過，這不代表愈遲成立的學校愈差，雖然它們的Band 1比率不高，但Band 3比率也沒有特別高。先看表事件劃分的數據，除了英治初期或以前的Band 3比率特別低，只有約10%，其他時期所建的學校，Band 3率均是約25%至約35%，至於按等額年份劃分的情況也跟接事件劃分的數據相似。可見，1900年後不同時期所建的學校Band 3率都差不多，不會說學校愈年輕愈差。
-</p>
+    
+<h1>百年老校定千禧校舍？</h1>
 
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'eventbar')" id="defaultOpen">按事件劃分</button>
@@ -464,21 +422,11 @@ function openCity(evt, cityName) {
 document.getElementById("defaultOpen").click();
 </script>
 
-<h1>中學教育是宗教多元化嗎？</h1>
+<h1> 宗教背景的中學壟斷 </h1>
 
-<p>
-有基督教或天主教背景的學校壟斷了香港的中學教育，就要追朔到十九世紀，來港傳教士開始創辦不少至今歷史悠久、校譽昭著的補助學校。例如香港首間學校英華書院，由倫敦傳道會的馬禮遜牧師於一八一八年在馬六甲成立。
-</p>
 
-<ul class="nav nav-tabs">
-  <li class="active"><a data-toggle="tab" href="#home">地圖</a></li>
-  <li><a data-toggle="tab" href="#menu1">圓形圖</a></li>
-</ul>
 
-<div class="tab-content">
-  <div id="home" class="tab-pane fade in active">
-    <h3>地圖</h3>
-   <div id="Remap" class="tab2content" style="width: 900px;height:600px;">
+<div id="religiousmap" style="width: 800px;height:600px;">
 <script type="text/javascript">
 	
 	
@@ -546,6 +494,7 @@ var value1 = [
 	{name: '離島區', value: 0},
 	{name: '黃大仙區', value: 0},
 ];
+
 var value4 = [
     {name: '中西區', value: 0},
     {name: '九龍城區', value: 0},
@@ -566,6 +515,7 @@ var value4 = [
 	{name: '離島區', value: 0},
 	{name: '黃大仙區', value: 0},
 ];
+
 var value5 = [
     {name: '中西區', value: 0},
     {name: '九龍城區', value: 0},
@@ -586,6 +536,7 @@ var value5 = [
 	{name: '離島區', value: 2},
 	{name: '黃大仙區', value: 2},
 ];
+
 var value7 = [
     {name: '中西區', value: 5},
     {name: '九龍城區', value: 17},
@@ -606,6 +557,7 @@ var value7 = [
 	{name: '離島區', value: 2},
 	{name: '黃大仙區', value: 8},
 ];
+
 var value6 = [
     {name: '中西區', value: 4},
     {name: '九龍城區', value: 8},
@@ -626,6 +578,7 @@ var value6 = [
 	{name: '離島區', value: 2},
 	{name: '黃大仙區', value: 7},
 ];
+
 var nameMap = {
            'Central and Western': '中西區',
                     'Eastern': '東區',
@@ -646,7 +599,7 @@ var nameMap = {
                     'Yau Tsim Mong': '油尖旺區',
                     'Yuen Long': '元朗區'
 };
-	option = {
+option = {
     timeline: {
         axisType: 'category',
         data: ['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教' ] ,
@@ -706,15 +659,15 @@ var nameMap = {
         }
     }]
 };
-	
         // 使用刚指定的配置项和数据显示图表。
         //echarts.registerMap('GeoJSON', geoJSON);
-        var myChart2 = echarts.init(document.getElementById('Remap'));
+        var myChart2 = echarts.init(document.getElementById('religiousmap'));
 		myChart2.setOption(option);
     </script>
-  </div>
-  <div id="menu1" class="tab-pane fade">
-<div id="Repie"  class="tab2content" style="width: 900px;height:500px;">
+
+</div>
+
+<div id="religiouspie" style="width: 800px;height:600px;">
 <script type="text/javascript">
     
 option = {
@@ -724,7 +677,8 @@ option = {
     },
     legend: {
         orient: 'vertical',
-        x: 'right',
+        x: 'left',
+		y: 'buttom',
         data:['伊斯蘭教','孔教','儒釋道三教','道教', '佛教', '天主教', '基督教']
     },
     series: [
@@ -762,167 +716,17 @@ option = {
         }
     ]
 };
-        var myChart3 = echarts.init(document.getElementById('Repie'));
-		myChart3.setOption(option);
+var myChart3 = echarts.init(document.getElementById('religiouspie'));
+        myChart3.setOption(option);
     </script>
-  </div>
-
-
-	
 
 </div>
-	
-<script>
-function openRe(evt, ReName) {
-    var i, tab2content, tab2links;
-    tab2content = document.getElementsByClassName("tab2content");
-    for (i = 0; i < tab2content.length; i++) {
-        tab2content[i].style.display = "none";
-    }
-    tab2links = document.getElementsByClassName("tab2links");
-    for (i = 0; i < tab2links.length; i++) {
-        tab2links[i].className = tab2links[i].className.replace(" active", "");
-    }
-    document.getElementById(ReName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen2").click();
-</script>
-	
-</div>
 
-<p>
-自五十年代起，面對戰後人口急速上升的壓力，香港政府努力拓展小學教育，有不少宗教界人士負責開辦津貼學校。當中基督新教和天主教的神職人員較有現代教育經驗，能即時負起辦學和其他社會服務的擔子。相對而言，其時受過現代教育和專業訓練的佛教僧尼較少；而港英政府當時亦備好西方宗教團體。因此東方宗教團體稍後才有較大規模的辦學和社會服務。五、六十年代，數以百計的學校相繼開辦，基督新教和公教團體填補了空缺，因而掌管了全港津貼學校的一半以上。
-</p>
-
-<h1>富裕地區多Band1學校？</h1>
-<p>
-不對！原來我們一直以為「平均收入較高的地方，會較多名校」這觀念是錯的。最富裕的地區是灣仔區，住戶入息中位數為＄40000，但只有8間Band 1學校。相反，有最多Band 1學校的九龍城區及沙田區，比灣仔區多一倍Band 1學校，入息中位數遠不及灣仔區，分別只有＄24200和＄27500。
-</p><p>
-其實綜觀住戶入息中位數、Band 1學校的數量及Band 1學校的比率，會發現當中並沒有什麼關係。
-</p>
-<div class="row">
-  <div class="col-xs-12 col-md-8">
-    <div id="income" style="width: 850px;height:500px;"></div>
-    <script type="text/javascript">
-option = {
-    tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-            type: 'cross',
-            crossStyle: {
-                color: '#999'
-            }
-        }
-    },
-    toolbox: {
-        feature: {
-            dataView: {show: true, readOnly: false},
-            magicType: {show: true, type: ['line', 'bar']},
-            restore: {show: true},
-            saveAsImage: {show: true}
-        }
-    },
-    legend: {
-        data:['Band 1 學校數量','住戶入息中位數']
-    },
-    xAxis: [
-        {
-            type: 'category',
-            data: ['中西區', '九龍城區','元朗區','北區','南區','大埔區','屯門區','東區','沙田區','油尖旺區', '深水埗區','灣仔區', '荃灣區', '葵青區','西貢區','觀塘區','離島區', '黄大仙區',],
-            axisPointer: {
-                type: 'shadow'
-            }
-			
-        }
-    ],
-	 grid: { // 控制图的大小，调整下面这些值就可以，
-             x: 45,
-             x2: 80,
-             y2: 100,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
-         },
-    yAxis: [
-        {
-            type: 'value',
-            name: 'Band 1 學校數量',
-            min: 0,
-            max: 20,
-            interval: 2,
-            axisLabel: {
-                formatter: '{value}'
-				
-            }
-        },
-        {
-            type: 'value',
-            name: '住戶入息中位數',
-            min: 0,
-            max: 50000,
-            interval: 5000,
-            axisLabel: {
-                formatter: '${value} '
-            }
-        }
-    ],
-    series: [
-        {
-            name:'Band 1 學校數量',
-            type:'bar',
-            data:[9,16,10,7,2,6,10,11,16,8,8,8,4,10,5,9,1,6]
-        },
-        {
-            name:'住戶入息中位數',
-            type:'line',
-            yAxisIndex: 1,
-            data:[35000,24200,22800,24500,29200,28000,23000,29000,27500,25000,19000,40000,28000,20600,33000,20000,26000,21300]
-        }
-    ]
-};
-        // 基于准备好的dom，初始化echarts实例
-        var myChart5 = echarts.init(document.getElementById('income'));
-		myChart5.setOption(option);
-</script>
-	</div>
-		    </div>
-
- <h1>Banding制度下的現實</h1>
-<p>
-所謂Banding是現行中學學位分配系統中的核心概念，該系統會按照小五六校內成績和排名為學生分配一個派位組別（即是「Banding」），最後就會根據學生所屬的Banding組別和意願，利用教育局電腦系統分派學位。
-</p><p>
-這制度好處是讓不同能力的學生分派適合的學校，達致因材施教，但這演變成「Band 1學校就是好學校」，有違普及教育精神的思想﹐促使不少中學把工作重點轉移到所謂等級升降之上，而非教好學生。
-</p><p>
-同時香港家長望子成龍的心態，自然希望子女入讀較好的學校，小學也希望更多該校學生入讀名校，催谷子女強加溫習，令學生壓力大增。
-</p><p>
-雖然不少壞處浮現，但要為各中學分類，一方面讓出眾學生入讀Band 1學校接受精英教育，Band 2和Band 3學校就可以因應該校學生情況提供最適合教育，目前Banding系統仍然是較有系統和廣泛接受的制度。
-
-</p>
-  
-<br>
-	<br>
-
-	  
-		<center>
-	 <div class="container">
-            <p class="text-muted">
-		   
-By Group 1 JOUR2106 (2017)
-            </p>
-        </div>
-	</center>  
-</div></div>
-
-
-		
-		
-		
+</div></div></div></div></div>
 </body>
 
-
-
-
-
-
+<footer>
+By Group 1 JOUR2106 (2017)
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -931,3 +735,4 @@ By Group 1 JOUR2106 (2017)
   ga('create', 'UA-98083359-1', 'auto');
   ga('send', 'pageview');
 </script>
+</footer>
